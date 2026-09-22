@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>حقيبة نسائية أنيقة - 279 درهم</title>
+<style>
+*{box-sizing:border-box} body{margin:0;font-family:Arial,Tahoma,sans-serif;background:#faf7f5;color:#222}
+.wrap{max-width:1050px;margin:auto;padding:18px}
+.hero{background:#fff;border-radius:22px;padding:18px;box-shadow:0 6px 25px #00000012}
+.badge{display:inline-block;background:#222;color:#fff;padding:8px 14px;border-radius:20px;font-size:14px}
+h1{font-size:32px;margin:12px 0 8px} .sub{color:#666;line-height:1.8}
+.price{font-size:34px;font-weight:800;margin:14px 0}.price small{font-size:16px;font-weight:400;color:#777}
+.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;margin-top:18px}
+.gallery img{width:100%;height:100%;object-fit:cover;border-radius:16px;display:block}
+.gallery img:first-child{grid-row:span 2;min-height:430px}
+@media(max-width:700px){.gallery{grid-template-columns:1fr 1fr}.gallery img:first-child{grid-column:span 2;min-height:auto}}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
+.feature{background:#f7f2ef;padding:15px;border-radius:14px;text-align:center}
+select,input{width:100%;padding:14px;border:1px solid #ddd;border-radius:12px;font-size:16px;margin:6px 0}
+.cta{display:block;text-align:center;background:#1faa59;color:#fff;text-decoration:none;padding:17px;border-radius:14px;font-size:20px;font-weight:700;margin-top:12px}
+.note{text-align:center;color:#777;font-size:13px;margin-top:10px}
+.section{margin-top:18px;background:#fff;padding:20px;border-radius:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <span class="badge">جديد</span>
+    <h1>حقيبة نسائية أنيقة</h1>
+    <div class="sub">تصميم أنيق مناسب للاستعمال اليومي والمناسبات، مع حقيبة صغيرة وإكسسواراتها حسب اللون المتوفر.</div>
+    <div class="price">279 درهم <small>الدفع عند الاستلام</small></div>
+
+    <div class="gallery">
+      <img src="product-black.webp" alt="الحقيبة باللون الأسود">
+      <img src="product-beige.webp" alt="الحقيبة باللون البيج">
+      <img src="product-brown.webp" alt="الحقيبة باللون البني">
+    </div>
+
+    <div class="features">
+      <div class="feature">✨ تصميم أنيق</div>
+      <div class="feature">🎁 مناسبة كهدية</div>
+      <div class="feature">🚚 الدفع عند الاستلام</div>
+    </div>
+
+    <div class="section">
+      <h2>اختاري اللون</h2>
+      <select id="color">
+        <option>أسود</option>
+        <option>بيج</option>
+        <option>بني</option>
+      </select>
+
+      <a id="wa" class="cta" href="#" target="_blank">اطلبي الآن عبر واتساب</a>
+      <div class="note">بعد الضغط على الزر سيفتح واتساب برسالة جاهزة بالمنتج واللون.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+const WHATSAPP_NUMBER = "212764885273"; // استبدل XXXXXXXXX برقم واتسابك بدون + أو مسافات
+const color = document.getElementById("color");
+const wa = document.getElementById("wa");
+
+function updateWhatsApp(){
+  const msg = `السلام عليكم، أريد طلب الحقيبة النسائية بسعر 279 درهم. اللون: ${color.value}.`;
+  wa.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+}
+color.addEventListener("change", updateWhatsApp);
+updateWhatsApp();
+</script>
+</body>
+</html>
