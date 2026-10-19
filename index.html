@@ -1,97 +1,222 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Velora Markit - الطلب</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Velora Markit | متجر إلكتروني</title>
 <style>
-body{font-family:Arial,sans-serif;background:#faf7f5;color:#222;margin:0;padding:16px}
-main{max-width:500px;margin:auto;background:white;padding:20px;border-radius:18px}
-h1{text-align:center}
-.price{font-size:28px;font-weight:bold;text-align:center}
-label{display:block;margin-top:14px}
-input,select,button{width:100%;padding:14px;margin-top:6px;box-sizing:border-box;border-radius:10px;font-size:16px}
-input,select{border:1px solid #ccc}
-button{background:#159447;color:white;border:0;font-weight:bold;margin-top:20px}
-.note{color:#666;font-size:13px;line-height:1.7}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f7f7f7;color:#222}
+header{background:#172b24;color:white;padding:22px 15px;text-align:center}
+header h1{margin:0;font-size:30px}
+header p{margin:10px 0 0}
+nav{text-align:center;background:#fff;padding:13px}
+nav a{color:#172b24;text-decoration:none;font-weight:bold}
+.hero{background:#e8eee9;text-align:center;padding:30px 15px}
+.hero h2{margin-top:0}
+.container{max-width:900px;margin:auto;padding:18px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.product{background:white;border-radius:12px;padding:18px;text-align:center;box-shadow:0 2px 9px #0000000c}
+.product .emoji{font-size:65px}
+.product h3{margin:10px 0}
+.price{font-size:23px;font-weight:bold;color:#167348}
+.product button,.submit{background:#176b49;color:white;border:0;padding:12px 18px;border-radius:8px;font-size:16px;cursor:pointer}
+form{background:white;padding:20px;border-radius:12px;margin-top:25px}
+form h2{text-align:center}
+label{display:block;margin-top:14px;font-weight:bold}
+input,select,textarea{width:100%;padding:12px;margin-top:6px;border:1px solid #ccc;border-radius:7px;font-size:16px;background:white}
+.submit{width:100%;margin-top:20px}
+.note{text-align:center;color:#555;font-size:14px}
+footer{text-align:center;background:#172b24;color:white;padding:20px;margin-top:25px}
 </style>
 </head>
 <body>
-<main>
+
+<header>
 <h1>Velora Markit</h1>
-<h2>حقيبة نسائية أنيقة</h2>
+<p>مرحبا بكم في متجرنا الإلكتروني</p>
+</header>
+
+<nav><a href="#products">المنتوجات</a>　|　<a href="#order">اطلب دابا</a></nav>
+
+<section class="hero">
+<h2>اختار المنتوج اللي عجبك</h2>
+<p>طلب سهل عبر واتساب، والأداء عند الاستلام حسب شروط التوصيل.</p>
+</section>
+
+<main class="container">
+<h2 id="products">منتوجاتنا</h2>
+<div class="products">
+
+<div class="product">
+<div class="emoji">👟</div>
+<h3>حذاء رجالي</h3>
+<p>اختار القياس المناسب ليك.</p>
+<p class="price">250 درهم</p>
+<button type="button" onclick="chooseProduct('حذاء رجالي',250)">اطلب الحذاء</button>
+</div>
+
+<div class="product">
+<div class="emoji">🦟</div>
+<h3>شبكة الناموس</h3>
+<p>حماية من الناموس داخل المنزل.</p>
+<p class="price">140 درهم</p>
+<button type="button" onclick="chooseProduct('شبكة الناموس',140)">اطلب الشبكة</button>
+</div>
+
+<div class="product">
+<div class="emoji">👜</div>
+<h3>حقيبة نسائية أنيقة</h3>
+<p>متوفرة بألوان مختلفة.</p>
 <p class="price">279 درهم</p>
-<p>الدفع عند الاستلام</p>
+<button type="button" onclick="chooseProduct('حقيبة نسائية أنيقة',279)">اطلبي الحقيبة</button>
+</div>
 
-<form id="orderForm">
-<label>الاسم الكامل</label>
-<input id="name" required placeholder="الاسم الكامل">
+</div>
 
-<label>رقم الهاتف</label>
-<input id="phone" type="tel" required placeholder="06XXXXXXXX">
+<form id="order">
+<h2>معلومات الطلب</h2>
 
-<label>المدينة والعنوان</label>
-<input id="address" required placeholder="المدينة والحي والعنوان">
-
-<label>اختاري اللون</label>
-<select id="color">
-<option>أسود</option>
-<option>بيج</option>
-<option>بني</option>
+<label for="product">المنتوج</label>
+<select id="product" required>
+<option value="حذاء رجالي" data-price="250">حذاء رجالي - 250 درهم</option>
+<option value="شبكة الناموس" data-price="140">شبكة الناموس - 140 درهم</option>
+<option value="حقيبة نسائية أنيقة" data-price="279">حقيبة نسائية أنيقة - 279 درهم</option>
 </select>
 
-<button type="submit">تأكيد الطلب عبر واتساب</button>
-</form>
+<label for="quantity">الكمية</label>
+<input id="quantity" type="number" min="1" max="10" value="1" required>
 
-<p class="note">من بعد الضغط، غادي يتحل واتساب برسالة فيها معلومات الطلب. وسيتم إرسال محاولة لتسجيل الطلب في جدول البيانات.</p>
-<p id="status" class="note"></p>
+<div id="sizeWrap">
+<label for="size">قياس الحذاء</label>
+<select id="size">
+<option value="40">40</option>
+<option value="41">41</option>
+<option value="42">42</option>
+<option value="43">43</option>
+<option value="44">44</option>
+</select>
+</div>
+
+<div id="colorWrap" hidden>
+<label for="color">لون الحقيبة</label>
+<select id="color">
+<option value="أسود">أسود</option>
+<option value="بيج">بيج</option>
+<option value="بني">بني</option>
+</select>
+</div>
+
+<label for="name">الاسم الكامل</label>
+<input id="name" autocomplete="name" required placeholder="دخل الاسم الكامل">
+
+<label for="phone">رقم الهاتف</label>
+<input id="phone" type="tel" autocomplete="tel" required placeholder="06XXXXXXXX">
+
+<label for="address">العنوان والمدينة</label>
+<textarea id="address" rows="3" required placeholder="المدينة، الحي، والعنوان"></textarea>
+
+<p id="total" class="price">المجموع: 250 درهم</p>
+<p class="note">راجع معلوماتك قبل تأكيد الطلب.</p>
+<button class="submit" type="submit">تأكيد الطلب عبر واتساب</button>
+<p id="status" class="note" aria-live="polite"></p>
+</form>
 </main>
+
+<footer>
+<strong>Velora Markit</strong>
+<p>شكرا على ثقتكم بنا</p>
+</footer>
 
 <script>
 const WHATSAPP_NUMBER = "212764885273";
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzFiRVrM8rCLs6JYUOpnUvOb3apleLS8Wj_g-uuhG4066jNabljOiMuGyxbtiB-wAdm/exec";
 
-document.getElementById("orderForm").addEventListener("submit", function(e) {
+const product = document.getElementById("product");
+const quantity = document.getElementById("quantity");
+const sizeWrap = document.getElementById("sizeWrap");
+const colorWrap = document.getElementById("colorWrap");
+const statusBox = document.getElementById("status");
+
+function updateForm(){
+  const p = product.value;
+  sizeWrap.hidden = p !== "حذاء رجالي";
+  colorWrap.hidden = p !== "حقيبة نسائية أنيقة";
+  const price = Number(product.selectedOptions[0].dataset.price);
+  const qty = Math.max(1, Number(quantity.value) || 1);
+  document.getElementById("total").textContent =
+    "المجموع: " + (price * qty) + " درهم";
+}
+
+function chooseProduct(name, price){
+  product.value = name;
+  updateForm();
+  document.getElementById("order").scrollIntoView({behavior:"smooth"});
+}
+
+product.addEventListener("change", updateForm);
+quantity.addEventListener("input", updateForm);
+updateForm();
+
+document.getElementById("order").addEventListener("submit", async function(e){
   e.preventDefault();
 
-  const order = {
-    name: document.getElementById("name").value.trim(),
-    phone: document.getElementById("phone").value.trim(),
-    address: document.getElementById("address").value.trim(),
-    product: "حقيبة نسائية أنيقة",
-    color: document.getElementById("color").value,
-    price: 279,
+  const p = product.value;
+  const price = Number(product.selectedOptions[0].dataset.price);
+  const qty = Number(quantity.value);
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const address = document.getElementById("address").value.trim();
+  const size = p === "حذاء رجالي" ? document.getElementById("size").value : "";
+  const color = p === "حقيبة نسائية أنيقة" ? document.getElementById("color").value : "";
+
+  if(!name || !phone || !address || !Number.isInteger(qty) || qty < 1 || qty > 10){
+    statusBox.textContent = "تأكد من جميع المعلومات والكمية.";
+    return;
+  }
+
+  const orderData = {
+    name: name,
+    phone: phone,
+    address: address,
+    product: p,
+    color: color,
+    size: size,
+    quantity: qty,
+    price: price * qty,
     timestamp: new Date().toISOString()
   };
 
   const message =
-    "السلام عليكم، بغيت نأكد الطلب:\n" +
-    "الاسم: " + order.name + "\n" +
-    "الهاتف: " + order.phone + "\n" +
-    "العنوان: " + order.address + "\n" +
-    "المنتج: " + order.product + "\n" +
-    "اللون: " + order.color + "\n" +
-    "الثمن: 279 درهم";
+    "السلام عليكم، بغيت نأكد هاد الطلب من Velora Markit:\n" +
+    "المنتوج: " + p + "\n" +
+    "الكمية: " + qty + "\n" +
+    (size ? "القياس: " + size + "\n" : "") +
+    (color ? "اللون: " + color + "\n" : "") +
+    "المجموع: " + (price * qty) + " درهم\n" +
+    "الاسم: " + name + "\n" +
+    "الهاتف: " + phone + "\n" +
+    "العنوان: " + address;
 
-  window.open(
-    "https://wa.me/" + WHATSAPP_NUMBER +
-    "?text=" + encodeURIComponent(message),
-    "_blank"
-  );
+  const whatsappURL = "https://wa.me/" + WHATSAPP_NUMBER +
+    "?text=" + encodeURIComponent(message);
 
-  fetch(APPS_SCRIPT_URL, {
-    method: "POST",
-    mode: "no-cors",
-    headers: {"Content-Type": "text/plain;charset=utf-8"},
-    body: JSON.stringify(order)
-  }).then(function() {
-    document.getElementById("status").textContent =
-      "تمت محاولة إرسال الطلب. خاصنا نتأكدو واش تزاد فجدول البيانات.";
-  }).catch(function() {
-    document.getElementById("status").textContent =
-      "ما قدرناش نرسلو الطلب لجدول البيانات. تواصل عبر واتساب.";
-  });
+  const whatsappWindow = window.open(whatsappURL, "_blank");
+
+  statusBox.textContent = "فتح واتساب لإرسال الطلب. تأكد من الضغط على إرسال داخل واتساب.";
+
+  try{
+    await fetch(APPS_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {"Content-Type":"text/plain;charset=utf-8"},
+      body: JSON.stringify(orderData)
+    });
+  }catch(error){
+    statusBox.textContent =
+      "فتح واتساب، ولكن تعذر تأكيد إرسال البيانات للجدول. خاصنا نختبرو الربط.";
+  }
 });
 </script>
 </body>
