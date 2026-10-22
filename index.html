@@ -93,7 +93,7 @@ const statusBox = document.getElementById("status");
 function updateTotal(){
   let qty = Math.max(1, Number(quantity.value) || 1);
   document.getElementById("total").textContent =
-    "المجموع: " + (140 * qty) + " درهم";
+    "المجموع: " + (169 * qty) + " درهم";
 }
 quantity.addEventListener("input", updateTotal);
 
@@ -119,16 +119,16 @@ form.addEventListener("submit", async function(e){
     address: address,
     product: "مكنسة كهربائية صغيرة",
     quantity: qty,
-    price: 140 * qty,
+    price: 169 * qty,
     timestamp: new Date().toISOString()
   };
 
   const message =
     "السلام عليكم، بغيت نأكد الطلب من Velora Markit:\n" +
     "المنتوج: مكنسة كهربائية صغيرة\n" +
-    "الثمن للوحدة: 140 درهم\n" +
+    "الثمن للوحدة: 169 درهم\n" +
     "الكمية: " + qty + "\n" +
-    "المجموع: " + (140 * qty) + " درهم\n" +
+    "المجموع: " + (169 * qty) + " درهم\n" +
     "الاسم: " + name + "\n" +
     "الهاتف: " + phone + "\n" +
     "المدينة: " + city + "\n" +
